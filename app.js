@@ -1,14 +1,11 @@
 const express=require('express')
+const tasks=require("./routes/tasks");
 require('dotenv').config();
 const mongoose=require('mongoose')
 const app=express()
 
-app.get('/',(req,res)=>{
-    res.send("testing 123..")
-})
-
-
-
+app.use(express.json());
+app.use('/api/v1/tasks',tasks)
 
 const port=3000;
 const start=async ()=>{
